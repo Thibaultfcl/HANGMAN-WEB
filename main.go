@@ -11,9 +11,14 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "tmpl/home.html")
 }
 
+func Rules(w http.ResponseWriter, r *http.Request) {
+	http.ServeFile(w, r, "tmpl/rules.html")
+}
+
 func main() {
 
 	http.HandleFunc("/home", Home)
+	http.HandleFunc("/rules", Rules)
 
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
 	http.Handle("/img/", http.StripPrefix("/img/", http.FileServer(http.Dir("./img"))))
