@@ -87,3 +87,7 @@ footer a {
         display: none;
     }
 }
+
+.rules {
+    margin-inline-start: 20px;
+}
