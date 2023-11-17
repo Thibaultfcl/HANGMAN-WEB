@@ -91,3 +91,7 @@ footer a {
 .rules {
     margin-inline-start: 20px;
 }
+
+u {
+    color: white;
+}
