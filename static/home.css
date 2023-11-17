@@ -39,7 +39,7 @@ header {
     border-radius: 15px;
 }
 
-.txt {
+.title {
     text-align: center;
 }
 
@@ -92,6 +92,22 @@ footer a {
     margin-inline-start: 20px;
 }
 
+ul {
+    margin-inline-start: 20px;
+}
+
 u {
     color: white;
+}
+
+form {
+    margin-top: 100px;
+    text-align: center;
+    border-radius: 15px;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
 }
