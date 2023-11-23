@@ -47,24 +47,17 @@
     <hr />
     <br />
 
-    <div class="difficulty">
-      <div></div>
-      <form action="/game" method="post">
-        <input type="submit" name="difficulty" value="EASY" />
-      </form>
-      <form action="/game" method="post">
-        <input type="submit" name="difficulty" value="NORMAL" />
-      </form>
-      <form action="/game" method="post">
-        <input type="submit" name="difficulty" value="HARD" />
-      </form>
-      <div></div>
-    </div>
-
     <form action="/game" method="post">
-      <label for="type">Pseudo :</label>
-      <input type="text" id="text" name="Pseudo" required />
-      <button type="submit">START</button>
+      <div class="pseudo">
+        <label for="type">Pseudo :</label>
+        <input type="text" id="text" name="Pseudo" required />
+        <button type="submit">START</button>
+      </div>
+      <div class="difficulty">
+        <input type="submit" name="difficulty" value="EASY" />
+        <input type="submit" name="difficulty" value="NORMAL" />
+        <input type="submit" name="difficulty" value="HARD" />
+      </div>
     </form>
 
     <footer>

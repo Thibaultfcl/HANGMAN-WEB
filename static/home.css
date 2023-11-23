@@ -100,19 +100,34 @@ u {
     color: white;
 }
 
-form {
-    margin-top: 100px;
-    text-align: center;
-    border-radius: 15px;
-}
-
-input[type="submit"] {
+[type="submit"] {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
 }
 
+.play form {
+    margin-top: 75px;
+    text-align: center;
+    border-radius: 15px;
+    justify-content: space-between;
+}
+
 .difficulty {
-    display: flex;
+    margin-top: 75px;
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+.pseudo [type="submit"] {
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.pseudo {
+    margin-top: 75px;
+    text-align: center;
+    border-radius: 15px;
     justify-content: space-between;
 }
