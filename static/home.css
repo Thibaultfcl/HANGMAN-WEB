@@ -111,3 +111,8 @@ input[type="submit"] {
     font-size: 16px;
     cursor: pointer;
 }
+
+.difficulty {
+    display: flex;
+    justify-content: space-between;
+}

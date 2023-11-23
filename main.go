@@ -20,16 +20,6 @@ func Leaderboard(w http.ResponseWriter, r *http.Request) {
 }
 
 func Game(w http.ResponseWriter, r *http.Request) {
-	// if r.Method == http.MethodPost {
-	// 	r.ParseForm()
-	// 	number := r.Form.Get("number")
-	// 	AttemptsLeft, err := strconv.Atoi(number)
-	// 	if err != nil {
-	// 		http.Error(w, "Veuillez entrer un numéro valide.", http.StatusBadRequest)
-	// 		return
-	// 	}
-	// 	functions.PrintHangman(AttemptsLeft)
-	// }
 	http.ServeFile(w, r, "tmpl/game.html")
 }
 

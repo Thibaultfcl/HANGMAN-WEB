@@ -46,10 +46,24 @@
     <br />
     <hr />
     <br />
-    
+
+    <div class="difficulty">
+      <div></div>
+      <form action="/game" method="post">
+        <input type="submit" name="difficulty" value="EASY" />
+      </form>
+      <form action="/game" method="post">
+        <input type="submit" name="difficulty" value="NORMAL" />
+      </form>
+      <form action="/game" method="post">
+        <input type="submit" name="difficulty" value="HARD" />
+      </form>
+      <div></div>
+    </div>
+
     <form action="/game" method="post">
-      <label for="number">AttempsLeft :</label>
-      <input type="number" id="number" name="number" required />
+      <label for="type">Pseudo :</label>
+      <input type="text" id="text" name="Pseudo" required />
       <button type="submit">START</button>
     </form>
 
