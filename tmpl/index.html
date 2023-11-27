@@ -19,9 +19,7 @@
       <div>
         <ul class="navbar">
           <li class="nav-item">
-            <a href="/game">
-              <u>play</u>
-            </a>
+            <a href="/game">play</a>
           </li>
           <li class="nav-item">
             <a href="/leaderboard">leaderboard</a>
@@ -47,18 +45,26 @@
     <hr />
     <br />
 
-    <form action="/game1" method="post">
-      <div class="pseudo">
-        <label for="type">Pseudo :</label>
-        <input type="text" id="text" name="Pseudo" required />
-        <button type="submit">START</button>
-      </div>
-      <div class="difficulty">
-        <input type="submit" name="difficulty" value="EASY" />
-        <input type="submit" name="difficulty" value="NORMAL" />
-        <input type="submit" name="difficulty" value="HARD" />
-      </div>
-    </form>
+    <div class="attemps">
+        <p>Attemps left : {{ .AttemptLeft }}</p>
+    </div>
+
+    <div class="main">
+        <div class="menu">
+            <h1 class="word">{{ .WordGuessed }}</h1>
+            <form action="/game3" method="post">
+                <div class="search">
+                    <input required type="text" name ="field2" placeholder="Let's try . . ." required>
+                </div>
+            </form>
+        </div>
+        <div class="hangman">
+            <p><pre>{{ .Hangman }}</pre></p>
+            {{range .Rep}} 
+                {{.}} 
+            {{end}}
+        </div>
+    </div>
 
     <footer>
       <div class="mentions">
