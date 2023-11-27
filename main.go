@@ -60,7 +60,7 @@ func Game1(w http.ResponseWriter, r *http.Request) {
 		level = r.Form.Get("difficulty")
 		WordToGuess = strings.ToUpper(functions.Random(level))
 		Name = r.Form.Get("Pseudo")
-		attemptLeft = 10
+		attemptLeft = 5
 
 		//Mot caché (_ _ _ _ _)
 		for range WordToGuess {
