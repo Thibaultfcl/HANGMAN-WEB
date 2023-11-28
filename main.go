@@ -80,6 +80,10 @@ func Game1(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/", redirect)
 }
 
+func Game3(w http.ResponseWriter, r *http.Request) {
+	
+}
+
 func Redirect(w http.ResponseWriter, r *http.Request) {
 	if bool {
 		bool = false
