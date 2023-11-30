@@ -12,7 +12,7 @@ import (
 
 type GameInfo struct {
 	AttemptLeft int
-	WordHidden  []string
+	HiddenWord  []string
 	Hangman     string
 	LettersUsed []string
 }
@@ -22,7 +22,7 @@ const redirect = 301
 
 var attemptLeft int
 var WordToGuess string  // Mot (L A V A B O)
-var WordHidden []string // Mot (_ A _ _ B O)
+var HiddenWord []string // Mot (_ A _ _ B O)
 var bool = true
 
 var LettersUsed []string
@@ -63,9 +63,9 @@ func Game1(w http.ResponseWriter, r *http.Request) {
 		attemptLeft = 5
 
 		//Mot caché (_ _ _ _ _)
-		WordHidden = make([]string, len(WordToGuess))
-		for i := range WordHidden {
-			WordHidden[i] = "_"
+		HiddenWord = make([]string, len(WordToGuess))
+		for i := range HiddenWord {
+			HiddenWord[i] = "_"
 		}
 
 		//Premières lettres dévoilées (_ I _ _ E)
@@ -82,7 +82,7 @@ func Game1(w http.ResponseWriter, r *http.Request) {
 			}
 		}
 		for _, i := range indexLetters {
-			WordHidden[i] = string(WordToGuess[i])
+			HiddenWord[i] = string(WordToGuess[i])
 		}
 	}
 	http.Redirect(w, r, "/", redirect)
@@ -97,7 +97,7 @@ func Redirect(w http.ResponseWriter, r *http.Request) {
 		bool = false
 		http.Redirect(w, r, "/game", redirect)
 	} else {
-		new := GameInfo{AttemptLeft: attemptLeft, WordHidden: WordHidden, Hangman: functions.PrintHangman(attemptLeft), LettersUsed: LettersUsed}
+		new := GameInfo{AttemptLeft: attemptLeft, HiddenWord: HiddenWord, Hangman: functions.PrintHangman(attemptLeft), LettersUsed: LettersUsed}
 		tmpl := template.Must(template.ParseFiles("tmpl/index.html"))
 		tmpl.Execute(w, new)
 	}
