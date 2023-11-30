@@ -5,38 +5,36 @@ import (
 	"fmt"
 	"math/rand"
 	"os"
-	"time"
 )
 
-func Random(u string) string {
-	rand.Seed(time.Now().UnixNano())
-	t := ""
-	s := ""
-	var a int
-	if u == "EASY" {
-		a = rand.Intn(37) + 1
-		t = "words.txt"
-	} else if u == "NORMAL" {
-		a = rand.Intn(23) + 1
-		t = "words2.txt"
-	} else if u == "HARD" {
-		a = rand.Intn(24) + 1
-		t = "words3.txt"
+func Random(difficulty string) string {
+	file := ""
+	word := ""
+	var index int
+	if difficulty == "EASY" {
+		index = rand.Intn(37) + 1
+		file = "words.txt"
+	} else if difficulty == "NORMAL" {
+		index = rand.Intn(23) + 1
+		file = "words2.txt"
+	} else if difficulty == "HARD" {
+		index = rand.Intn(24) + 1
+		file = "words3.txt"
 	} else {
 		fmt.Println("Erreur")
 		os.Exit(1)
 	}
-	file, err := os.Open(t)
+	fileOpen, err := os.Open(file)
 	if err != nil {
 		fmt.Println(err)
 	}
 	i := 0
-	scanner := bufio.NewScanner(file)
+	scanner := bufio.NewScanner(fileOpen)
 	for scanner.Scan() {
 		i++
-		if i == a {
-			s = scanner.Text()
+		if i == index {
+			word = scanner.Text()
 		}
 	}
-	return s
+	return word
 }

@@ -12,20 +12,20 @@ import (
 
 type GameInfo struct {
 	AttemptLeft int
-	WordGuessed string
+	WordHidden  []string
 	Hangman     string
-	Rep         []string
+	LettersUsed []string
 }
 
 const port = ":8080"
 const redirect = 301
 
 var attemptLeft int
-var WordToGuess string // Mot (L A V A B O)
-var WordGuessed []rune // Mot (_ A _ _ B O)
+var WordToGuess string  // Mot (L A V A B O)
+var WordHidden []string // Mot (_ A _ _ B O)
 var bool = true
 
-var rep []string
+var LettersUsed []string
 var Name string
 var level string
 
@@ -50,38 +50,46 @@ func Game(w http.ResponseWriter, r *http.Request) {
 }
 
 func Game1(w http.ResponseWriter, r *http.Request) {
-	WordGuessed = []rune{}
 	if len(os.Args) == 1 {
 		if err := r.ParseForm(); err != nil {
 			fmt.Fprintf(w, "ParseForm() err: %v", err)
 			return
 		}
-		rep = []string{}
+
 		level = r.Form.Get("difficulty")
-		WordToGuess = strings.ToUpper(functions.Random(level))
 		Name = r.Form.Get("Pseudo")
+		WordToGuess = strings.ToUpper(functions.Random(level))
+		LettersUsed = []string{}
 		attemptLeft = 5
 
 		//Mot caché (_ _ _ _ _)
-		for range WordToGuess {
-			WordGuessed = append(WordGuessed, '_')
+		WordHidden = make([]string, len(WordToGuess))
+		for i := range WordHidden {
+			WordHidden[i] = "_"
 		}
 
 		//Premières lettres dévoilées (_ I _ _ E)
-		for v := 0; v < len(WordToGuess)/2-1; v++ {
-			random := rand.Intn(len(WordToGuess))
-			if WordGuessed[random] == '_' {
-				WordGuessed[random] = rune(WordToGuess[random])
-			} else {
-				v--
+		NbRevealedLetters := len(WordToGuess)/2 - 1
+		if NbRevealedLetters < 1 {
+			NbRevealedLetters = 1
+		}
+
+		indexLetters := make([]int, 0)
+		for len(indexLetters) < NbRevealedLetters {
+			randomIndex := rand.Intn(len(WordToGuess))
+			if !functions.Contains(indexLetters, randomIndex) {
+				indexLetters = append(indexLetters, randomIndex)
 			}
+		}
+		for _, i := range indexLetters {
+			WordHidden[i] = string(WordToGuess[i])
 		}
 	}
 	http.Redirect(w, r, "/", redirect)
 }
 
 func Game3(w http.ResponseWriter, r *http.Request) {
-	
+
 }
 
 func Redirect(w http.ResponseWriter, r *http.Request) {
@@ -89,7 +97,7 @@ func Redirect(w http.ResponseWriter, r *http.Request) {
 		bool = false
 		http.Redirect(w, r, "/game", redirect)
 	} else {
-		new := GameInfo{AttemptLeft: attemptLeft, WordGuessed: string(WordGuessed), Hangman: functions.PrintHangman(attemptLeft), Rep: rep}
+		new := GameInfo{AttemptLeft: attemptLeft, WordHidden: WordHidden, Hangman: functions.PrintHangman(attemptLeft), LettersUsed: LettersUsed}
 		tmpl := template.Must(template.ParseFiles("tmpl/index.html"))
 		tmpl.Execute(w, new)
 	}

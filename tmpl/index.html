@@ -51,7 +51,7 @@
 
     <div class="main">
         <div class="menu">
-            <h1 class="word">{{ .WordGuessed }}</h1>
+            <h1 class="word">{{ .WordHidden }}</h1>
             <form action="/game3" method="post">
                 <div class="search">
                     <input required type="text" name ="field2" placeholder="Let's try . . ." required>
@@ -60,7 +60,7 @@
         </div>
         <div class="hangman">
             <p><pre>{{ .Hangman }}</pre></p>
-            {{range .Rep}} 
+            {{range .LettersUsed}}
                 {{.}} 
             {{end}}
         </div>
