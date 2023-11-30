@@ -88,7 +88,7 @@ func Game1(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/", redirect)
 }
 
-func Game3(w http.ResponseWriter, r *http.Request) {
+func Game2(w http.ResponseWriter, r *http.Request) {
 
 }
 
@@ -112,6 +112,7 @@ func main() {
 	http.HandleFunc("/game", Game)
 	http.HandleFunc("/profil", Profil)
 	http.HandleFunc("/game1", Game1)
+	http.HandleFunc("/game2", Game2)
 
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
 	http.Handle("/img/", http.StripPrefix("/img/", http.FileServer(http.Dir("./img"))))
