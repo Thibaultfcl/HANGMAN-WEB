@@ -1,0 +1,160 @@
+/* overall */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+/*  */
+
+/* body */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: url("../img/background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+/*  */
+
+/* header */
+header {
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 3rem;
+    align-items: center;
+    box-shadow: 5px 5px 200px 15px black;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    color: rgb(255, 255, 255);
+    gap: 6rem;
+    font-weight: 700;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+}
+
+.icone img {
+    border-radius: 15px;
+}
+/*  */
+
+/* footer */
+footer {
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    height: 8vh;
+    font-size: 14px;
+    width: 100%;
+    line-height: 6vh;
+}
+/*  */
+
+/* screen adaptation */
+@media screen and (max-width: 768px) {
+    .navbar {
+        display: none;
+    }
+
+    footer {
+        flex-direction: column;
+        padding: 2rem 0.5rem;
+        height: auto;
+        text-align: center;
+        gap: 2rem;
+        margin-top: 1rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .navbar {
+        display: none;
+    }
+}
+/*  */
+
+/* content */
+.content {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+}
+/*  */
+
+/* title */
+.title {
+    animation: blink 1s infinite;
+    text-align: center;
+    color: #d8d8d8;
+    transform: translate(-50%, -50%);
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+    margin-bottom: 50px;
+}
+
+@keyframes blink {
+    0%, 50%, 100% {
+        opacity: 1;
+    }
+    25%, 75% {
+        opacity: 0;
+    }
+}
+/*  */
+
+/* difficulty button */
+.difficulty {
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+[type="submit"] {
+    margin-right: 25px;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 15px;
+    border: none;
+    transition: box-shadow 0.3s ease;
+}
+
+[type="submit"]:hover {
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
+}
+
+[value="EASY"]{
+    background: linear-gradient(to right, #00ff00, #33ff33);
+    color: #000000;
+    font-weight: bold;
+    box-shadow: 0 0 12px rgba(0, 255, 0, 0.7);
+}
+
+[value="NORMAL"]{
+    background: linear-gradient(to right, #ff9900, #ffcc00);
+    color: #000000;
+    font-weight: bold;
+    box-shadow: 0 0 12px rgba(255, 153, 0, 0.7);
+}
+
+[value="HARD"]{
+    background: linear-gradient(to right, #ff0000, #ff3333);
+    color: #000000;
+    font-weight: bold;
+    box-shadow: 0 0 12px rgba(255, 0, 0, 0.7);
+}
+/*  */

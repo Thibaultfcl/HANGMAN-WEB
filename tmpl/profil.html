@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Name of the site -->
+    <title>HANGMAN WEB</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./static/profil.css" />
+    <!-- Icone of the site -->
+    <link rel="sortcut icon" href="./img/logo.png" />
+  </head>
+
+  <body>
+    <header>
+      <!-- Icone home -->
+      <div class="icone">
+        <a href="/home">
+          <img src="./img/icone.jpg" alt="icone" height="75" />
+        </a>
+      </div>
+
+      <!-- Navbar -->
+      <div>
+        <ul class="navbar">
+          <li class="nav-item">
+            <a href="/game">play</a>
+          </li>
+          <li class="nav-item">
+            <a href="/leaderboard">leaderboard</a>
+          </li>
+          <li class="nav-item">
+            <a href="/rules">how to play ?</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Icone profil -->
+      <div class="icone">
+        <a href="/profil">
+          <img src="./img/icone-profil.png" alt="icone" height="50" />
+        </a>
+      </div>
+    </header>
+
+    <!-- title -->
+    <div class="title">
+      <h1>PROFIL</h1>
+    </div>
+
+    <!-- if connected -->
+    {{if .Username}}
+    <div class="userInfo">
+      <h1>Connected as {{.Username}}</h1>
+    </div>
+    <div class="logout">
+      <form action="/logout" method="post">
+        <input type="submit" value="Logout" />
+      </form>
+    </div>
+
+    <!-- if admin -->
+    {{if .IsAdmin}}
+    <div class="admin">
+      <form action="/admin" method="post">
+        <input type="submit" value="PANEL ADMIN" />
+      </form>
+    </div>
+    <!-- if banned -->
+    {{else if .IsBanned}}
+    <div class="ban">
+      <h1>You are banned.</h1>
+    </div>
+    {{end}} {{else}}
+
+    <!-- if not connected -->
+    <!-- login -->
+    <div class="login-section">
+      <h2>Login</h2>
+      <br />
+      <form action="/login" method="post">
+        <label for="login-username">Username:</label>
+        <input
+          type="text"
+          id="login-username"
+          name="login-username"
+          required
+        /><br /><br />
+
+        <label for="login-password">Password:</label>
+        <input
+          type="password"
+          id="login-password"
+          name="login-password"
+          required
+        /><br /><br />
+
+        <input type="submit" value="Login" />
+      </form>
+    </div>
+
+    <br /><br /><br />
+
+    <!-- sign up -->
+    <div class="account-section">
+      <h2>Create Account</h2>
+      <br />
+      <form action="/signup" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required /><br /><br />
+
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          required
+        /><br /><br />
+
+        <input type="submit" value="Sign Up" />
+      </form>
+    </div>
+
+    {{end}}
+
+    <!-- footer -->
+    <footer>
+      <p>&copy; 2024 Hangman Game. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

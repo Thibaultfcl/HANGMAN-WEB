@@ -1,0 +1,187 @@
+/* overall */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+/*  */
+
+/* body */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: url("../img/background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+/*  */
+
+/* header */
+header {
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 3rem;
+    align-items: center;
+    box-shadow: 5px 5px 200px 15px black;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    color: rgb(255, 255, 255);
+    gap: 6rem;
+    font-weight: 700;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+}
+
+.icone img {
+    border-radius: 15px;
+}
+/*  */
+
+/* footer */
+footer {
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    height: 8vh;
+    font-size: 14px;
+    width: 100%;
+    line-height: 6vh;
+}
+/*  */
+
+/* screen adaptation */
+@media screen and (max-width: 768px) {
+    .navbar {
+        display: none;
+    }
+
+    footer {
+        flex-direction: column;
+        padding: 2rem 0.5rem;
+        height: auto;
+        text-align: center;
+        gap: 2rem;
+        margin-top: 1rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .navbar {
+        display: none;
+    }
+}
+/*  */
+
+/* title */
+.title {
+    color: #d8d8d8;
+    position: absolute;
+    top: 175px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+}
+/*  */
+
+/* login section */
+.login-section {
+    position: absolute;
+    top: 400px;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    color: #d8d8d8;
+}
+
+.login-section input {
+    border-radius: 5px;
+    padding: 5px;
+}
+/*  */
+
+/* account section */
+.account-section {
+    position: absolute;
+    top: 400px;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    color: #d8d8d8;
+}
+
+.account-section input {
+    border-radius: 5px;
+    padding: 5px;
+}
+/*  */
+
+/* user info */
+.userInfo {
+    position: absolute;
+    top: 300px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #d8d8d8;
+}
+/*  */
+
+/* logout button */
+.logout {
+    position: absolute;
+    top: 400px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/*  */
+
+/* admin button */
+.admin {
+    position: absolute;
+    top: 500px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/*  */
+
+/* ban */
+.ban {
+    position: absolute;
+    top: 600px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #d8d8d8;
+}
+/*  */
+
+/* button */
+[type="submit"] {
+    margin-right: 25px;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 15px;
+    border: none;
+    transition: box-shadow 0.3s ease;
+    background: linear-gradient(to right, #181818, #000000);
+    color: #ffffff;
+    font-weight: bold;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.7);
+}
+
+[type="submit"]:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+/*  */

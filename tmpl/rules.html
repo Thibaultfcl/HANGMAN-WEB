@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Name of the site -->
+    <title>HANGMAN WEB</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./static/rules.css" />
+    <!-- Icone of the site -->
+    <link rel="sortcut icon" href="./img/logo.png" />
+  </head>
+
+  <body>
+    <header>
+      <!-- Icone home -->
+      <div class="icone">
+        <a href="/home">
+          <img src="./img/icone.jpg" alt="icone" height="75" />
+        </a>
+      </div>
+
+      <!-- Navbar -->
+      <div>
+        <ul class="navbar">
+          <li class="nav-item">
+            <a href="/game">play</a>
+          </li>
+          <li class="nav-item">
+            <a href="/leaderboard">leaderboard</a>
+          </li>
+          <li class="nav-item">
+            <a href="/rules">
+              <u>how to play ?</u>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Icone profil -->
+      <div class="icone">
+        <a href="/profil">
+          <img src="./img/icone-profil.png" alt="icone" height="50" />
+        </a>
+      </div>
+    </header>
+
+    <!-- title -->
+    <div class="title">
+      <h1>RULES</h1>
+    </div>
+
+    <!-- rules -->
+    <div class="rules">
+      <h2>Objective:</h2>
+      <br />
+      <a
+        >The Hangman web game is an online adaptation of the classic
+        word-guessing game. Your goal is to guess the hidden word before the
+        hangman is fully drawn. Each incorrect guess brings the hangman one step
+        closer, so choose your letters wisely!"</a
+      >
+      <br /><br /><br />
+
+      <h2>How to Play:</h2>
+      <br />
+
+      <div style="display: flex">
+        <div style="margin-right: 100px">
+          <h4>Guessing a letter:</h4>
+          <ul>
+            <li>
+              Type on your device to guess one letter or one word at a time
+            </li>
+            <li>
+              Correct letters will be revealed in their respective positions
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Incorrect Guesses:</h4>
+          <ul>
+            <li>
+              Be careful! Each incorrect guess adds a part to the hangman figure
+            </li>
+            <li>
+              The gallows, head, body, arms, and legs are drawn sequentially for
+              each mistake
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="display: flex; margin-top: 50px">
+        <div style="margin-right: 70px">
+          <h4>Winning and Losing:</h4>
+          <ul>
+            <li>
+              Win by guessing the entire word before the hangman is complete
+            </li>
+            <li>
+              Lose if the hangman is fully drawn before you guess the word
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Difficulty Levels:</h4>
+          <ul>
+            <li>
+              This game has different difficulty levels. Choose one that suits
+              your skill level
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <p>&copy; 2024 Hangman Game. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

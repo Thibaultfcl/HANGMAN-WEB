@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Name of the site -->
+    <title>HANGMAN WEB</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./static/game.css" />
+    <!-- Icone of the site -->
+    <link rel="sortcut icon" href="./img/logo.png" />
+  </head>
+
+  <body>
+    <header>
+      <!-- Icone home -->
+      <div class="icone">
+        <a href="/home">
+          <img src="./img/icone.jpg" alt="icone" height="75" />
+        </a>
+      </div>
+
+      <!-- Navbar -->
+      <div>
+        <ul class="navbar">
+          <li class="nav-item">
+            <a href="/game">
+              <u>play</u>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/leaderboard">leaderboard</a>
+          </li>
+          <li class="nav-item">
+            <a href="/rules">how to play ?</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Icone profil -->
+      <div class="icone">
+        <a href="/profil">
+          <img src="./img/icone-profil.png" alt="icone" height="50" />
+        </a>
+      </div>
+    </header>
+
+    <div class="content">
+      <!-- title -->
+      <div class="title">
+        <h1>Please select the level of difficulty</h1>
+      </div>
+  
+      <!-- form to choose the difficulty -->
+      <form action="/game1" method="post">
+        <div class="difficulty">
+          <input type="submit" name="difficulty" value="EASY" />
+          <input type="submit" name="difficulty" value="NORMAL" />
+          <input type="submit" name="difficulty" value="HARD" />
+        </div>
+      </form>
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <p>&copy; 2024 Hangman Game. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

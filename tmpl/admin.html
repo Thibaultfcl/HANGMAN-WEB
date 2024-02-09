@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Name of the site -->
+    <title>HANGMAN WEB</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./static/admin.css" />
+    <!-- Icone of the site -->
+    <link rel="sortcut icon" href="./img/logo.png" />
+  </head>
+
+  <body>
+    <header>
+      <!-- Icone home -->
+      <div class="icone">
+        <a href="/home">
+          <img src="./img/icone.jpg" alt="icone" height="75" />
+        </a>
+      </div>
+
+      <!-- Navbar -->
+      <div>
+        <ul class="navbar">
+          <li class="nav-item">
+            <a href="/game">play</a>
+          </li>
+          <li class="nav-item">
+            <a href="/leaderboard">leaderboard</a>
+          </li>
+          <li class="nav-item">
+            <a href="/rules">how to play ?</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Icone profil -->
+      <div class="icone">
+        <a href="/profil">
+          <img src="./img/icone-profil.png" alt="icone" height="50" />
+        </a>
+      </div>
+    </header>
+
+    <!-- Title -->
+    <div class="title">
+      <h1>PANEL ADMIN</h1>
+    </div>
+
+    <!-- quit button -->
+    <div class="quit">
+      <form action="/profil" method="post">
+        <input type="submit" value="QUIT" />
+      </form>
+    </div>
+    <br /><br /><br /><br />
+
+    <!-- leaderboard -->
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Admin</th>
+        <th>Banned</th>
+      </tr>
+      <!-- print each user -->
+      {{range .Users}}
+      <tr>
+        <td>{{.Id}}</td>
+        <td>{{.Username}}</td>
+        <td>{{.Password}}</td>
+        <td>
+          <!-- remove admin -->
+          {{if .IsAdmin}} Yes
+          <form action="/removeAdmin" method="post">
+            <input type="hidden" name="userId" value="{{.Id}}" />
+            <input type="submit" value="Remove ADMIN" />
+          </form>
+          <!-- grant admin -->
+          {{else}} No
+          <form action="/grantAdmin" method="post">
+            <input type="hidden" name="userId" value="{{.Id}}" />
+            <input type="submit" value="Grant ADMIN" />
+          </form>
+          {{end}}
+        </td>
+        <td>
+          <!-- unban -->
+          {{if .IsBanned}} Yes
+          <form action="/unban" method="post">
+            <input type="hidden" name="userId" value="{{.Id}}" />
+            <input type="submit" value="UNBAN" />
+          </form>
+          <!-- ban -->
+          {{else}} No
+          <form action="/ban" method="post">
+            <input type="hidden" name="userId" value="{{.Id}}" />
+            <input type="submit" value="BAN" />
+          </form>
+          {{end}}
+        </td>
+      </tr>
+      {{end}}
+    </table>
+
+    <!-- footer -->
+    <footer>
+        <p>&copy; 2024 Hangman Game. All rights reserved.</p>
+      </footer>
+  </body>
+</html>

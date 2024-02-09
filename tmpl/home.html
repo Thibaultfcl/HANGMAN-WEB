@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Name of the site -->
+    <title>HANGMAN WEB</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./static/home.css" />
+    <!-- Icone of the site -->
+    <link rel="sortcut icon" href="./img/logo.png" />
+  </head>
+
+  <body>
+    <header>
+      <!-- Icone home -->
+      <div class="icone">
+        <a href="/home">
+          <img src="./img/icone.jpg" alt="icone" height="75" />
+        </a>
+      </div>
+
+      <!-- Navbar -->
+      <div>
+        <ul class="navbar">
+          <li class="nav-item">
+            <a href="/game">play</a>
+          </li>
+          <li class="nav-item">
+            <a href="/leaderboard">leaderboard</a>
+          </li>
+          <li class="nav-item">
+            <a href="/rules">how to play ?</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Icone profil -->
+      <div class="icone">
+        <a href="/profil">
+          <img src="./img/icone-profil.png" alt="icone" height="50" />
+        </a>
+      </div>
+    </header>
+
+    <!-- play button -->
+    <div class="play">
+      <form action="/game" method="post">
+        <button onclick="window.location.href='game.html'">
+          <strong>PLAY</strong>
+        </button>
+      </form>
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <p>&copy; 2024 Hangman Game. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

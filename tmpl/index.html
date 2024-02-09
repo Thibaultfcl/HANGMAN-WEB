@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Name of the site -->
+    <title>HANGMAN WEB</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./static/index.css" />
+    <!-- Icone of the site -->
+    <link rel="sortcut icon" href="./img/logo.png" />
+  </head>
+
+  <body>
+    <header>
+      <!-- Icone home -->
+      <div class="icone">
+        <a href="/home">
+          <img src="./img/icone.jpg" alt="icone" height="75" />
+        </a>
+      </div>
+
+      <!-- Navbar -->
+      <div>
+        <ul class="navbar">
+          <li class="nav-item">
+            <a href="/game">play</a>
+          </li>
+          <li class="nav-item">
+            <a href="/leaderboard">leaderboard</a>
+          </li>
+          <li class="nav-item">
+            <a href="/rules">how to play ?</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Icone profil -->
+      <div class="icone">
+        <a href="/profil">
+          <img src="./img/icone-profil.png" alt="icone" height="50" />
+        </a>
+      </div>
+    </header>
+
+    <!-- title -->
+    <div class="title">
+      <h1>GAME</h1>
+    </div>
+
+    <!-- attemptsLeft -->
+    <div class="attempts">
+      <h2>Attempts left : {{ .AttemptLeft }}</h2>
+    </div>
+
+    <!-- wordToGuess -->
+    <div class="word">
+      <h1>{{ .HiddenWord }}</h1>
+    </div>
+
+    <!-- form to enter a letter -->
+    <form action="/game2" method="post">
+      <div class="search">
+        <input
+          required
+          type="text"
+          name="try"
+          id="try"
+          placeholder="Let's try . . ."
+          required
+        />
+      </div>
+    </form>
+
+    <!-- print Hangman -->
+    {{if .Hangman}}
+    <div class="hangman">
+      <pre>{{ .Hangman }}</pre>
+    </div>
+    {{end}}
+
+    <!-- letterUsed -->
+    <div class="letterUsed">
+      <p>Letters used : {{ .LettersUsed }}</p>
+    </div>
+
+    <!-- script that automatically enter in the input -->
+    <script>
+      window.onload = function () {
+        document.getElementById('try').focus();
+      };
+    </script>
+
+    <!-- footer -->
+    <footer>
+      <p>&copy; 2024 Hangman Game. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Name of the site -->
+    <title>HANGMAN WEB</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./static/leaderboard.css" />
+    <!-- Icone of the site -->
+    <link rel="sortcut icon" href="./img/logo.png" />
+  </head>
+
+  <body>
+    <header>
+      <!-- Icone home -->
+      <div class="icone">
+        <a href="/home">
+          <img src="./img/icone.jpg" alt="icone" height="75" />
+        </a>
+      </div>
+
+      <!-- Navbar -->
+      <div>
+        <ul class="navbar">
+          <li class="nav-item">
+            <a href="/game">play</a>
+          </li>
+          <li class="nav-item">
+            <a href="/leaderboard">
+              <u>leaderboard</u>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/rules">how to play ?</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Icone profil -->
+      <div class="icone">
+        <a href="/profil">
+          <img src="./img/icone-profil.png" alt="icone" height="50" />
+        </a>
+      </div>
+    </header>
+
+    <!-- leaderboard -->
+    <div class="score-tables">
+      <!-- leaderboard global -->
+      <div class="score-table">
+        <h2>Top Scores</h2>
+        {{if .TopScores}}
+        <ul>
+          {{range .TopScores}}
+          <li><B>{{.Username}}: </B> {{.Score}}</li>
+          {{end}}
+        </ul>
+        {{else}}
+        <h2>No top scores available</h2>
+        {{end}}
+      </div>
+
+      <!-- leaderboard user -->
+      <div class="score-table">
+        {{if .UserTopScores}}
+        <h2>Your Top Scores</h2>
+        <ul>
+          {{range .UserTopScores}}
+          <li><B>{{.Username}}: </B> {{.Score}}</li>
+          {{end}}
+        </ul>
+        {{else}}
+        <h2>No user top scores available</h2>
+        {{end}}
+      </div>
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <p>&copy; 2024 Hangman Game. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
